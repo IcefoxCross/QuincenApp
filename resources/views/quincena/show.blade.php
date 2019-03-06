@@ -1,27 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <style>
-        td {
-            text-align: center;
-        }
-        td, th {
-            border: 1px solid #dddddd;
-        }
-        th {
-            padding: 8px;
-        }
-        table {
-            width: 50%;
-            border-collapse: collapse;
-        }
-    </style>
-</head>
-<body>
+@extends('layouts.default')
+
+@section('content')
+    <a href="{{route('quincenas.index')}}" class="btn btn-primary mt-3">Volver</a>
     <h1>{{date('d/m/y',strtotime($quincena->fecha_inicial))}} - {{date('d/m/y',strtotime($quincena->dias[13]))}}</h1>
     <table>
         <tr>
@@ -45,5 +25,4 @@
             <td>{{$quincena->totales['total']}}</td>
         </tr>
     </table>
-</body>
-</html>
+@endsection

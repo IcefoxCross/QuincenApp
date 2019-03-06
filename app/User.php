@@ -29,6 +29,6 @@ class User extends Authenticatable
     ];
 
     public function quincenas(){
-        return $this->hasMany('App\Quicena');
+        return $this->hasMany('App\Quincena');
     }
 }

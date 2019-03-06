@@ -16,7 +16,7 @@ class CreateQuincenasTable extends Migration
         Schema::disableForeignKeyConstraints();
         Schema::create('quincenas', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('user_id')->default(1);
             $table->date('fecha_inicial');
             $table->json('dias');
             $table->json('ingresos');
@@ -25,7 +25,7 @@ class CreateQuincenasTable extends Migration
             $table->json('totales');
             $table->timestamps();
 
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

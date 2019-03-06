@@ -14,7 +14,21 @@ class Quincena extends Model
         'totales' => 'array',
     ];
 
+    protected $fillable = [
+        'fecha_inicial',
+        'user_id',
+        'dias',
+        'ingresos',
+        'egresos',
+        'total_dias',
+        'totales',
+    ];
+
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User', 'user_id');
+    }
+
+    public function fecha_final(){
+        return $this->dias[13];
     }
 }
